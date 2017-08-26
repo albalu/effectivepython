@@ -37,8 +37,11 @@ print(y)
 # Example 3
 try:
     w = '謝謝'
+    print(w)
     x = w.encode('utf-8')
+    print(x)
     y = x[::-1]
+    print(y)
     z = y.decode('utf-8')
 except:
     logging.exception('Expected')

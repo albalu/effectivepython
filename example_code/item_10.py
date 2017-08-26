@@ -47,5 +47,6 @@ for i, flavor in enumerate(flavor_list):
 
 
 # Example 5
+print("enumerate starting from 1:")
 for i, flavor in enumerate(flavor_list, 1):
     print('%d: %s' % (i, flavor))

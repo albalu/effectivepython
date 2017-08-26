@@ -57,9 +57,12 @@ a[-3:-1]  #                          ['f', 'g']
 
 
 # Example 6
-first_twenty_items = a[:20]
+first_twenty_items = a[:20]  # interesting, this only raises error print, etc
 last_twenty_items = a[-20:]
-
+a.extend(list(range(15)))  # if not added, print(first_twenty_items) raises
+print("here")
+print(a)
+print(first_twenty_items)  # now this points to original a
 
 # Example 7
 try:
@@ -95,3 +98,4 @@ print('Before', a)
 a[:] = [101, 102, 103]
 assert a is b           # Still the same list object
 print('After ', a)      # Now has different contents
+print('After ', b)      # Now has different contents
