@@ -34,12 +34,14 @@ finally:
 # Example 2
 import json
 
+
 def load_json_key(data, key):
     try:
         result_dict = json.loads(data)  # May raise ValueError
     except ValueError as e:
         raise KeyError from e
     else:
+        # try to put more stuff to else not to unnecessarily skip any errors
         return result_dict[key]         # May raise KeyError
 
 # JSON decode successful
@@ -61,6 +63,7 @@ except KeyError:
 # Example 3
 import json
 UNDEFINED = object()
+
 
 def divide_json(path):
     handle = open(path, 'r+')   # May raise IOError
