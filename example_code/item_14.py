@@ -45,6 +45,7 @@ else:
 # Example 3
 x, y = 0, 5
 result = divide(x, y)
+print(result)
 if not result:
     print('Invalid inputs')  # This is wrong!
 else:
@@ -87,7 +88,8 @@ def divide(a, b):
 
 
 # Example 8
-x, y = 5, 2
+x, y = 5, 0
+# result = divide(x, y) # this will actually raise ValueError
 try:
     result = divide(x, y)
 except ValueError:

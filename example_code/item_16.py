@@ -49,6 +49,7 @@ def index_words_iter(text):
 
 # Example 4
 result = list(index_words_iter(address))
+print("directly converting index to list by list():")
 print(result[:3])
 
 

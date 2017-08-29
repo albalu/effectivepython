@@ -100,5 +100,6 @@ class Sorter(object):
 sorter = Sorter(group)
 numbers.sort(key=sorter)
 assert sorter.found is True
+print("with class definition:")
 print('Found:', found)
 print(numbers)
