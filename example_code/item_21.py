@@ -21,6 +21,7 @@ from sys import stdout as STDOUT
 
 
 # Example 1
+# in this example all 4 argumets are positional
 def safe_division(number, divisor, ignore_overflow,
                   ignore_zero_division):
     try:
@@ -50,6 +51,9 @@ assert result == float('inf')
 
 
 # Example 4
+# in this example there are 2 keyword argumets. It is MUCH better if the user
+# (could be myself) to do specify the keywords for keyword-arguments and
+# preferably ONLY for the keyword arguments and NOT for the positional args
 def safe_division_b(number, divisor,
                     ignore_overflow=False,
                     ignore_zero_division=False):
