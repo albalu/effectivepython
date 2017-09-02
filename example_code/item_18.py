@@ -46,6 +46,9 @@ log('Hi there')  # Much better
 
 # Example 3
 favorites = [7, 33, 99]
+print("The difference between var and *var for var==favorites:")
+print(favorites) # favorites is a list
+print(*favorites) # what * does is basically unpacking variables/arguments!
 log('Favorite colors', *favorites)
 
 
