@@ -111,6 +111,8 @@ print(percentages)
 
 # Example 12
 def normalize_defensive(numbers):
+    # calling iter on numbers twice is the same in both cases ONLY if numbers
+    # is an iterator to begin with (say a = iter([2, 3]) then iter(a)==iter(a))
     if iter(numbers) is iter(numbers):  # An iterator -- bad!
         raise TypeError('Must supply a container')
     total = sum(numbers)
