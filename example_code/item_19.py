@@ -28,10 +28,10 @@ assert remainder(20, 7) == 6
 
 
 # Example 2
-remainder(20, 7)
-remainder(20, divisor=7)
-remainder(number=20, divisor=7)
-remainder(divisor=7, number=20)
+print(remainder(20, 7))
+print(remainder(20, divisor=7))
+print(remainder(number=20, divisor=7))
+print(remainder(divisor=7, number=20))
 
 
 # Example 3
