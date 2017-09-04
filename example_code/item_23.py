@@ -94,6 +94,7 @@ result = defaultdict(counter.missing, current)  # Method reference
 for key, amount in increments:
     result[key] += amount
 assert counter.added == 2
+print("Example 7 with a class, # of added: {}".format(counter.added))
 print(result)
 
 
@@ -117,4 +118,9 @@ result = defaultdict(counter, current)  # Relies on __call__
 for key, amount in increments:
     result[key] += amount
 assert counter.added == 2
+print()
+print("Example 9 which shows just by introducing __call__ method we can count "
+      "the number of times defaultdict needed to set defaults by calling the "
+      "class, this number is {} as expected \n __call__ method lets an object"
+      " (e.g. a class) be called just like a function".format(counter.added))
 print(result)
