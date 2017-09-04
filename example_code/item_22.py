@@ -37,6 +37,7 @@ class SimpleGradebook(object):
 
 
 # Example 2
+print("Example 2")
 book = SimpleGradebook()
 book.add_student('Isaac Newton')
 book.report_grade('Isaac Newton', 90)
@@ -70,6 +71,7 @@ class BySubjectGradebook(object):
 
 
 # Example 5
+print("Example 5")
 book = BySubjectGradebook()
 book.add_student('Albert Einstein')
 book.report_grade('Albert Einstein', 'Math', 75)
@@ -108,6 +110,7 @@ class WeightedGradebook(object):
 
 
 # Example 8
+print("Example 8")
 book = WeightedGradebook()
 book.add_student('Albert Einstein')
 book.report_grade('Albert Einstein', 'Math', 80, 0.10)
@@ -119,6 +122,7 @@ print(book.average_grade('Albert Einstein'))
 
 
 # Example 9
+print("Example 9")
 grades = []
 grades.append((95, 0.45))
 grades.append((85, 0.55))
@@ -129,6 +133,7 @@ print(average_grade)
 
 
 # Example 10
+print("Example 10")
 grades = []
 grades.append((95, 0.45, 'Great job'))
 grades.append((85, 0.55, 'Better next time'))
@@ -189,6 +194,7 @@ class Gradebook(object):
 
 
 # Example 15
+print("Example 15")
 book = Gradebook()
 albert = book.student('Albert Einstein')
 math = albert.subject('Math')
@@ -199,3 +205,10 @@ gym = albert.subject('Gym')
 gym.report_grade(100, 0.40)
 gym.report_grade(85, 0.60)
 print(albert.average_grade())
+
+# another student:
+asghar = book.student("Asghar")
+math1 = asghar.subject("Math")
+math1.report_grade(99, 0.9)
+math1.report_grade(58, 0.1)
+print(asghar.average_grade())
