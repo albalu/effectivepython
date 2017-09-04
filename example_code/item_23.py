@@ -41,6 +41,11 @@ increments = [
     ('blue', 17),
     ('orange', 9),
 ]
+# The following line is VERY poorly explained in the book; basically since
+# the variable current is a normal python dictionary we can use it here as an
+# input ot a collections.defaultdict class and the difference is that this new
+# result dict provide a default value for missin keys using a function provided
+# (here it is log_missing which is just lambda: 0)
 result = defaultdict(log_missing, current)
 print('Before:', dict(result))
 for key, amount in increments:
