@@ -63,6 +63,9 @@ def increment_with_report(current, increments):
         return 0
 
     result = defaultdict(missing, current)
+    # basically one point of using defaultdict with log_missin is NOT to deal
+    # with checking whether keys that are in increments are also available
+    # in result, we just set it to zero if it wasn't and just add the increment
     for key, amount in increments:
         result[key] += amount
 
