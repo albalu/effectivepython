@@ -56,6 +56,13 @@ class LineCountWorker(Worker):
         self.result = data.count('\n')
 
     def reduce(self, other):
+        """
+        Args:
+            other (Worker or LineCountWorker, etc):
+
+        Returns:
+
+        """
         self.result += other.result
 
 
@@ -108,7 +115,7 @@ def write_test_files(tmpdir):
 with TemporaryDirectory() as tmpdir:
     write_test_files(tmpdir)
     result = mapreduce(tmpdir)
-
+print("The following result is from a specific input format:")
 print('There are', result, 'lines')
 
 
@@ -179,4 +186,7 @@ with TemporaryDirectory() as tmpdir:
     write_test_files(tmpdir)
     config = {'data_dir': tmpdir}
     result = mapreduce(LineCountWorker, PathInputData, config)
+print()
+print("The following result takes advantage of class method to define a more "
+      "general type of input data type that require additional config params")
 print('There are', result, 'lines')
