@@ -20,7 +20,15 @@ from pprint import pprint
 from sys import stdout as STDOUT
 
 
+def dprint(msg, delay=0.1):
+    sleep(delay)
+    print(msg)
+
+
 # Example 1
+from time import sleep
+
+
 class OldResistor(object):
     def __init__(self, ohms):
         self._ohms = ohms
@@ -34,10 +42,9 @@ class OldResistor(object):
 
 # Example 2
 r0 = OldResistor(50e3)
-print('Before: %5r' % r0.get_ohms())
+dprint('Before: %5r' % r0.get_ohms())
 r0.set_ohms(10e3)
-print('After:  %5r' % r0.get_ohms())
-
+dprint('After:  %5r' % r0.get_ohms())
 
 # Example 3
 r0.set_ohms(r0.get_ohms() + 5e3)
@@ -52,9 +59,8 @@ class Resistor(object):
 
 r1 = Resistor(50e3)
 r1.ohms = 10e3
-print('%r ohms, %r volts, %r amps' %
+dprint('%r ohms, %r volts, %r amps' %
       (r1.ohms, r1.voltage, r1.current))
-
 
 # Example 5
 r1.ohms += 5e3
@@ -78,10 +84,9 @@ class VoltageResistance(Resistor):
 
 # Example 7
 r2 = VoltageResistance(1e3)
-print('Before: %5r amps' % r2.current)
+dprint('Before: %5r amps' % r2.current)
 r2.voltage = 10
-print('After:  %5r amps' % r2.current)
-
+dprint('After:  %5r amps' % r2.current)
 
 # Example 8
 class BoundedResistance(Resistor):
@@ -157,8 +162,9 @@ class MysteriousResistor(Resistor):
 
 
 # Example 14
+sleep(0.1)
 r7 = MysteriousResistor(10)
 r7.current = 0.01
-print('Before: %5r' % r7.voltage)
+dprint('Before: %5r' % r7.voltage)
 r7.ohms
-print('After:  %5r' % r7.voltage)
+dprint('After:  %5r' % r7.voltage)
