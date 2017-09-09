@@ -22,6 +22,8 @@ from sys import stdout as STDOUT
 
 # Example 1
 import json
+from time import sleep
+
 
 class Serializable(object):
     def __init__(self, *args):
@@ -41,6 +43,7 @@ class Point2D(Serializable):
     def __repr__(self):
         return 'Point2D(%d, %d)' % (self.x, self.y)
 
+sleep(1)
 point = Point2D(5, 3)
 print('Object:    ', point)
 print('Serialized:', point.serialize())
@@ -51,6 +54,7 @@ class Deserializable(Serializable):
     @classmethod
     def deserialize(cls, json_data):
         params = json.loads(json_data)
+        print("arguments for deserialization: ", *params['args'])
         return cls(*params['args'])
 
 
@@ -64,6 +68,8 @@ class BetterPoint2D(Deserializable):
     def __repr__(self):
         return 'BetterPoint2D(%d, %d)' % (self.x, self.y)
 
+sleep(1)
+print()
 point = BetterPoint2D(5, 3)
 print('Before:    ', point)
 data = point.serialize()
@@ -113,6 +119,8 @@ register_class(EvenBetterPoint2D)
 
 
 # Example 8
+sleep(1)
+print()
 point = EvenBetterPoint2D(5, 3)
 print('Before:    ', point)
 data = point.serialize()
@@ -155,11 +163,18 @@ class RegisteredSerializable(BetterSerializable, metaclass=Meta):
 
 
 # Example 12
+sleep(1)
+print()
+print('An example of using metaclass to automatically call the __new__ method'
+      'and "register" our new class that is "subclassed" and metaclass'
+      'argumet was set')
 class Vector3D(RegisteredSerializable):
     def __init__(self, x, y, z):
         super().__init__(x, y, z)
         self.x, self.y, self.z = x, y, z
 
+sleep(1)
+print()
 v3 = Vector3D(10, -7, 3)
 print('Before:    ', v3)
 data = v3.serialize()
