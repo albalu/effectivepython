@@ -21,6 +21,9 @@ from sys import stdout as STDOUT
 
 
 # Example 1
+from time import sleep
+
+
 class FrequencyList(list):
     def __init__(self, members):
         super().__init__(members)
@@ -35,11 +38,13 @@ class FrequencyList(list):
 
 # Example 2
 foo = FrequencyList(['a', 'b', 'a', 'c', 'b', 'a', 'd'])
+print('original FrequencyList is: \n{}'.format(foo))
 print('Length is', len(foo))
 foo.pop()
 print('After pop:', repr(foo))
 print('Frequency:', foo.frequency())
-
+print()
+sleep(2)
 
 # Example 3
 class BinaryNode(object):
