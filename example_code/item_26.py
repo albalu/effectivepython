@@ -19,6 +19,9 @@ import logging
 from pprint import pprint
 from sys import stdout as STDOUT
 
+# Listen so far: more robust and scalable complex behavior can be created
+# via very simple functions and classes!
+
 
 # Example 1
 class ToDictMixin(object):
@@ -59,6 +62,7 @@ class BinaryTree(ToDictMixin):
 tree = BinaryTree(10,
     left=BinaryTree(7, right=BinaryTree(9)),
     right=BinaryTree(13, left=BinaryTree(11)))
+
 orig_print = print
 print = pprint
 print(tree.to_dict())
@@ -149,5 +153,18 @@ serialized = """{
 }"""
 
 deserialized = DatacenterRack.from_json(serialized)
+print("Some examples of working with deserialized DatacenterRack:")
+print("The serialized example (string/json): \n {}".format(serialized))
+print(deserialized.machines)
+print(deserialized.switch)
+print("serialized items in machines and switches:")
+print([item.to_dict() for item in deserialized.machines])
+print(deserialized.switch.to_dict())
+print()
+print("serialized items in machines and switches serialized to json/string:")
+print([item.to_json() for item in deserialized.machines])
+print(deserialized.switch.to_json())
+print()
+
 roundtrip = deserialized.to_json()
 assert json.loads(serialized) == json.loads(roundtrip)
