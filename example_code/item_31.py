@@ -81,6 +81,8 @@ galileo.math_grade = 99
 print('Writing: %5r' % galileo.writing_grade)
 print('Math:    %5r' % galileo.math_grade)
 
+print()
+print("using the Grade class and __get__ and __set__ methods:")
 
 # Example 6
 class Grade(object):
@@ -101,14 +103,14 @@ class Exam(object):
 exam = Exam()
 exam.writing_grade = 40
 
-
 # Example 8
 Exam.__dict__['writing_grade'].__set__(exam, 40)
 
 
 # Example 9
+print("exam.writing_grade:")
 print(exam.writing_grade)
-
+print()
 
 # Example 10
 print(Exam.__dict__['writing_grade'].__get__(exam, Exam))

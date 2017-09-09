@@ -91,6 +91,8 @@ else:
 
 # Example 6
 data = LoggingLazyDB()
+print()
+print("Exaple 6: showing that hasattr also calls on __getattr__ but only once")
 print('Before:     ', data.__dict__)
 print('foo exists: ', hasattr(data, 'foo'))
 print('After:      ', data.__dict__)
@@ -99,6 +101,8 @@ print('foo exists: ', hasattr(data, 'foo'))
 
 # Example 7
 data = ValidatingDB()
+print()
+print("Example 7: note that ValidatingDB calls on __getattribute__ each time")
 print('foo exists: ', hasattr(data, 'foo'))
 print('foo exists: ', hasattr(data, 'foo'))
 
@@ -117,6 +121,8 @@ class LoggingSavingDB(SavingDB):
         super().__setattr__(name, value)
 
 data = LoggingSavingDB()
+print()
+print("Example 9: everytime we assign a value to foo, __setattr__ is called!")
 print('Before: ', data.__dict__)
 data.foo = 5
 print('After:  ', data.__dict__)
@@ -125,6 +131,9 @@ print('Finally:', data.__dict__)
 
 
 # Example 10
+print()
+print("Example 10: recursion depth exceeds as everytime __getattribute__"
+      "accesses self._data, __getattribute__ is called again!")
 class BrokenDictionaryDB(object):
     def __init__(self, data):
         self._data = data
@@ -145,6 +154,11 @@ else:
 
 
 # Example 12
+print()
+print("Example 12: this time we access the data from the instance "
+      "attribute dictionary to avoid recursion")
+
+
 class DictionaryDB(object):
     def __init__(self, data):
         self._data = data
