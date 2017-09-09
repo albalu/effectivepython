@@ -104,7 +104,8 @@ print('Index 1 =', tree[1])
 print('11 in the tree?', 11 in tree)
 print('17 in the tree?', 17 in tree)
 print('Tree is', list(tree))
-
+print()
+sleep(2)
 
 # Example 9
 try:
@@ -134,8 +135,11 @@ tree = SequenceNode(
         15, left=SequenceNode(11))
 )
 
+sleep(2)
+print()
 print('Tree has %d nodes' % len(tree))
-
+print()
+sleep(2)
 
 # Example 12
 try:
@@ -166,5 +170,8 @@ tree = BetterNode(
         15, left=BetterNode(11))
 )
 
+sleep(2)
+print()
 print('Index of 7 is', tree.index(7))
 print('Count of 10 is', tree.count(10))
+print('Length of tree is', len(tree))
