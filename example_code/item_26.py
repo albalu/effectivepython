@@ -27,6 +27,7 @@ class ToDictMixin(object):
 
 
 # Example 2
+    # traverse means travel accross or move back and forth
     def _traverse_dict(self, instance_dict):
         output = {}
         for key, value in instance_dict.items():
@@ -65,6 +66,7 @@ print = orig_print
 
 
 # Example 5
+# if we use the old _traverse with this, ToDictMixin.to_dict loops forever
 class BinaryTreeWithParent(BinaryTree):
     def __init__(self, value, left=None,
                  right=None, parent=None):
