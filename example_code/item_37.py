@@ -93,11 +93,15 @@ for _ in range(5):
 
 # Example 9
 def compute_helicopter_location(index):
-    pass
+    print("computing helicopter location and slow_systemcall at the same time")
+    return index + 2
 
+print()
+loc = 0
 for i in range(5):
-    compute_helicopter_location(i)
+    loc += compute_helicopter_location(i)
 for thread in threads:
     thread.join()
 end = time()
 print('Took %.3f seconds' % (end - start))
+print(loc)
