@@ -37,7 +37,8 @@ a['bar'] = 2
 from random import randint
 
 # Randomly populate 'b' to cause hash conflicts
-while True:
+# while True:
+for _ in range(100): # the while loop is an infinite loop
     z = randint(99, 1013)
     b = {}
     for i in range(z):
@@ -47,6 +48,9 @@ while True:
     for i in range(z):
         del b[i]
     if str(b) != str(a):
+        print(str(a))
+        print()
+        print(str(b))
         break
 
 print(a)
