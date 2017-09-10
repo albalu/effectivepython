@@ -38,14 +38,6 @@ def fibonacci(n):
         return n
     return (fibonacci(n - 2) + fibonacci(n - 1))
 
-
-# Example 3
-def fibonacci(n):
-    """Return the n-th Fibonacci number"""
-    if n in (0, 1):
-        return n
-    return (fibonacci(n - 2) + fibonacci(n - 1))
-
 fibonacci = trace(fibonacci)
 
 
