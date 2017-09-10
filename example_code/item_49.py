@@ -30,6 +30,8 @@ assert not palindrome('banana')
 
 
 # Example 2
+print('Example 2: printing a function docstring')
+print(palindrome.__doc__)
 print(repr(palindrome.__doc__))
 
 
@@ -81,7 +83,10 @@ def find_anagrams(word, dictionary):
         none were found.
     """
     permutations = itertools.permutations(word, len(word))
+    # this permutations is a set of set of letters (permutation of letters
     possible = (''.join(x) for x in permutations)
+    # this possible is a set of words from all possible letter permutations
+    # print(list(possible))
     found = {word for word in possible if word in dictionary}
     return list(found)
 

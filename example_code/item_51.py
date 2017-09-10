@@ -66,6 +66,8 @@ try:
 except my_module.InvalidDensityError:
     weight = 0
 except my_module.Error as e:
+    # the following isn't called in this example but it's there exactly to
+    # catch any other error (or in this case possible bugs)
     logging.error('Bug in the calling code: %s', e)
 
 assert weight == 0
@@ -91,6 +93,7 @@ assert weight == 0
 # my_module.py
 class NegativeDensityError(InvalidDensityError):
     """A provided density value was negative."""
+
 
 def determine_weight(volume, density):
     if density < 0:
