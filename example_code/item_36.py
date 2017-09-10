@@ -30,15 +30,17 @@ print(out.decode('utf-8'))
 
 
 # Example 2
+print('Example 2: the point of this example is to show that subprocesses'
+      'run independently; e.g. here, proc and while loop run simultaneously!')
 from time import sleep, time
-proc = subprocess.Popen(['sleep', '0.3'])
+proc = subprocess.Popen(['sleep', '2'])
 while proc.poll() is None:
     print('Working...')
     # Some time consuming work here
     sleep(0.2)
 
 print('Exit status', proc.poll())
-
+print()
 
 # Example 3
 def run_sleep(period):
@@ -53,11 +55,13 @@ for _ in range(10):
 
 
 # Example 4
+print("printing output of the process of run_sleep")
 for proc in procs:
-    proc.communicate()
+    out, err = proc.communicate()
+    print(out)
 end = time()
 print('Finished in %.3f seconds' % (end - start))
-
+print()
 
 # Example 5
 import os
@@ -115,6 +119,8 @@ for proc in input_procs:
     proc.communicate()
 for proc in hash_procs:
     out, err = proc.communicate()
+    print()
+    print(out)
     print(out.strip())
 
 
