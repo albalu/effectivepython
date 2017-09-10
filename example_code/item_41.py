@@ -57,3 +57,12 @@ pool = ProcessPoolExecutor(max_workers=2)  # The one change
 results = list(pool.map(gcd, numbers))
 end = time()
 print('Took %.3f seconds' % (end - start))
+
+print()
+print('Final example: I basically rewrite "Example 4" to use '
+      'ProcessPoolExecutor with 8 processes to see the difference:')
+start = time()
+nCPU = 8
+pool = ProcessPoolExecutor(max_workers=nCPU)
+results = list(pool.map(gcd, numbers))
+print('Took %.3f seconds with %d CPUs' % (time() - start, nCPU))
