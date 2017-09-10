@@ -21,6 +21,9 @@ from sys import stdout as STDOUT
 
 
 # Example 1
+from time import sleep
+
+
 class GameState(object):
     def __init__(self):
         self.level = 0
@@ -43,6 +46,8 @@ with open(state_path, 'wb') as f:
 # Example 4
 with open(state_path, 'rb') as f:
     state_after = pickle.load(f)
+sleep(.1)
+print()
 print(state_after.__dict__)
 
 
@@ -58,12 +63,17 @@ class GameState(object):
 state = GameState()
 serialized = pickle.dumps(state)
 state_after = pickle.loads(serialized)
+sleep(0.1)
+print()
 print(state_after.__dict__)
 
 
 # Example 7
 with open(state_path, 'rb') as f:
     state_after = pickle.load(f)
+
+print()
+sleep(0.1)
 print(state_after.__dict__)
 
 
@@ -100,6 +110,8 @@ state = GameState()
 state.points += 1000
 serialized = pickle.dumps(state)
 state_after = pickle.loads(serialized)
+print()
+sleep(0.1)
 print(state_after.__dict__)
 
 
@@ -114,6 +126,8 @@ class GameState(object):
 
 # Example 15
 state_after = pickle.loads(serialized)
+sleep(0.1)
+print()
 print(state_after.__dict__)
 
 
@@ -126,15 +140,18 @@ class GameState(object):
 
 
 # Example 17
+print()
+print("Example 17")
 try:
-    pickle.loads(serialized)
+    a = pickle.loads(serialized)
 except:
-    logging.exception('Expected')
+    logging.exception('Expected: serialized did not load successfully')
 else:
     assert False
 
 
 # Example 18
+print('Example 18: with versioning!')
 def pickle_game_state(game_state):
     kwargs = game_state.__dict__
     kwargs['version'] = 2
@@ -152,6 +169,8 @@ def unpickle_game_state(kwargs):
 # Example 20
 copyreg.pickle(GameState, pickle_game_state)
 state_after = pickle.loads(serialized)
+print()
+sleep(0.1)
 print(state_after.__dict__)
 
 
@@ -187,4 +206,6 @@ copyreg.pickle(BetterGameState, pickle_game_state)
 # Example 25
 state = BetterGameState()
 serialized = pickle.dumps(state)
+sleep(0.1)
+print()
 print(serialized[:35])
