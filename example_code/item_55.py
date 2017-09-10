@@ -39,9 +39,15 @@ print(repr(a))
 
 
 # Example 5
+print()
+print("Example 5")
+print(repr(a))
 b = eval(repr(a))
+print(a)
+print(b)
+print(a==b)
 assert a == b
-
+print("End of Example 5")
 
 # Example 6
 print(repr(5))
@@ -73,10 +79,13 @@ class BetterClass(object):
 
 
 # Example 10
+print()
+print('Example 10:')
 obj = BetterClass(1, 2)
 print(obj)
 
-
 # Example 11
+print()
+print('Example 11:')
 obj = OpaqueClass(4, 5)
 print(obj.__dict__)
