@@ -220,6 +220,8 @@ class StoppableWorker(Thread):
 
 
 # Example 20
+print('Example 20: StopableWorker, remember that here we just pretend that we'
+      'have the download, resize and upload functions!')
 download_queue = ClosableQueue()
 resize_queue = ClosableQueue()
 upload_queue = ClosableQueue()

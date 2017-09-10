@@ -36,6 +36,10 @@ numbers = [(1963309, 2265973), (2030677, 3814172),
 start = time()
 results = list(map(gcd, numbers))
 end = time()
+print("The inputs are:\n{}".format(numbers))
+print("The outputs are:\n{}".format(results))
+print()
+
 print('Took %.3f seconds' % (end - start))
 
 
@@ -58,11 +62,17 @@ results = list(pool.map(gcd, numbers))
 end = time()
 print('Took %.3f seconds' % (end - start))
 
-print()
-print('Final example: I basically rewrite "Example 4" to use '
-      'ProcessPoolExecutor with 8 processes to see the difference:')
-start = time()
-nCPU = 8
-pool = ProcessPoolExecutor(max_workers=nCPU)
-results = list(pool.map(gcd, numbers))
-print('Took %.3f seconds with %d CPUs' % (time() - start, nCPU))
+
+def repeat_example(nCPU):
+    print()
+    print('Final example: I rewrite "Example 4" to use ProcessPoolExecutor'
+          ' with {} processes to see the difference:'.format(nCPU))
+    start = time()
+    pool = ProcessPoolExecutor(max_workers=nCPU)
+    results = list(pool.map(gcd, numbers))
+    print('Took %.3f seconds with %d CPUs' % (time() - start, nCPU))
+    print('Just to confirm, the final output/results are:\n{}'.format(results))
+
+repeat_example(nCPU=4)
+repeat_example(nCPU=8)
+print('At nCPU=8 finally the overhead outweigh the parallelization benefit')
