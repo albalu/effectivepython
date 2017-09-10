@@ -22,6 +22,8 @@ from sys import stdout as STDOUT
 
 # Example 1
 from collections import deque
+from time import time
+
 fifo = deque()
 fifo.append(1)      # Producer
 fifo.append(2)
@@ -117,22 +119,26 @@ print('After: ', a)
 
 
 # Example 10
-x = list(range(10**6))
-i = x.index(991234)
+x = list(range(10**8))
+start = time()
+i = x.index(92912324)
+print("regular indexing took {} seconds".format(time() - start))
 print(i)
 
 
 # Example 11
 from bisect import bisect_left
-i = bisect_left(x, 991234)
+start = time()
+i = bisect_left(x, 92912324)
+print("bisect_left search took {} seconds".format(time() - start))
 print(i)
-
+print()
 
 # Example 12
 from timeit import timeit
 print(timeit(
     'a.index(len(a)-1)',
-    'a = list(range(100))',
+    'a = list(range(20))',
     number=1000))
 print(timeit(
     'bisect_left(a, len(a)-1)',
