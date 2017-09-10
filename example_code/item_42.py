@@ -38,12 +38,15 @@ def fibonacci(n):
         return n
     return (fibonacci(n - 2) + fibonacci(n - 1))
 
-fibonacci = trace(fibonacci)
+# no need for the following; it is actually equivalent to @trace decorator
+# fibonacci = trace(fibonacci)
 
 
 # Example 4
+print('just calling the fibonacci function or print it:')
 fibonacci(3)
-
+print(fibonacci(3))
+print()
 
 # Example 5
 print(fibonacci)
