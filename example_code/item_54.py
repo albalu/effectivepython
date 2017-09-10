@@ -30,6 +30,7 @@ class Win32Database(object):
 class PosixDatabase(object):
     pass
 
+print("sys.platform: {}".format(sys.platform))
 if sys.platform.startswith('win32'):
     Database = Win32Database
 else:
