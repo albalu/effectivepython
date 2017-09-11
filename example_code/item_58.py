@@ -108,6 +108,7 @@ stats.print_stats()
 
 
 # Example 9
+print('Example 9: track down how many times each func called a specific func')
 stats = Stats(profiler, stream=STDOUT)
 stats.strip_dirs()
 stats.sort_stats('cumulative')
